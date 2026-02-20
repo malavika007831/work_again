@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Industry Shift Predictor - WorkAgain</title>
+    <link rel="stylesheet" href="../style.css">
+        <!-- Firebase SDK (compat) -->
+        <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="../index.html" style="text-decoration:none; color:inherit;">
+                <span class="work">Work</span><span class="again">Again</span>
+            </a>
+        </div>
+        <div class="nav-actions">
+            <div id="auth-actions" style="display: flex; gap: 15px; align-items: center;">
+                <button class="login-btn" id="navLoginBtn">Login</button>
+            </div>
+            <div id="user-section" style="display: none; display: flex; gap: 12px; align-items: center;">
+                <span id="userEmail" style="font-size: 14px; color: #555;"></span>
+                <div class="profile-circle">👤</div>
+                <button class="login-btn" id="logoutBtn" style="background: #ff6b6b;">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="features" style="width: 100%;">
+            <h2>🔮 Industry Shift Predictor</h2>
+            <p>Discover adjacent industries and career transitions that match your skills.</p>
+            
+            <div style="margin-top: 20px;">
+                <h3>Find Your Next Move</h3>
+                <label style="display: block; margin-bottom: 10px;">
+                    Your Previous Industry:
+                    <select style="width: 100%; padding: 10px; margin-top: 5px; border-radius: 8px; border: 1px solid #ddd;">
+                        <option>Teaching</option>
+                        <option>Finance</option>
+                        <option>Healthcare</option>
+                        <option>Marketing</option>
+                        <option>Engineering</option>
+                        <option>Hospitality</option>
+                    </select>
+                </label>
+
+                <h3 style="margin-top: 20px;">Recommended Career Paths</h3>
+                <div class="feature-btn" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); margin-bottom: 10px;">
+                    <strong>HR Training Specialist</strong>
+                    <p>Transition difficulty: Low | Salary: $55K-$75K | Ramp-up: 2-3 months</p>
+                </div>
+                <div class="feature-btn" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); margin-bottom: 10px;">
+                    <strong>Corporate Training Manager</strong>
+                    <p>Transition difficulty: Low | Salary: $60K-$80K | Ramp-up: 1-2 months</p>
+                </div>
+                <div class="feature-btn" style="background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%); margin-bottom: 10px;">
+                    <strong>Instructional Designer</strong>
+                    <p>Transition difficulty: Medium | Salary: $65K-$85K | Ramp-up: 3-4 months</p>
+                </div>
+            </div>
+
+            <button class="cta-btn" style="margin-top: 20px;">Get Full Career Report</button>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="auth-modal" style="display: none;">
+        <div class="auth-container">
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="loginTab">Login</button>
+                <button class="auth-tab" id="signupTab">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginForm" class="auth-form active">
+                <h2>Welcome Back</h2>
+                <form id="loginFormElement">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <button type="submit" class="auth-submit">Sign In</button>
+                </form>
+                <p id="loginError" class="error-message"></p>
+            </div>
+
+            <!-- Signup Form -->
+            <div id="signupForm" class="auth-form">
+                <h2>Create Account</h2>
+                <form id="signupFormElement">
+                    <input type="text" id="signupName" placeholder="Full Name" required>
+                    <input type="email" id="signupEmail" placeholder="Email" required>
+                    <input type="password" id="signupPassword" placeholder="Password (min 6 chars)" required>
+                    <input type="password" id="signupConfirm" placeholder="Confirm Password" required>
+                    <button type="submit" class="auth-submit">Create Account</button>
+                </form>
+                <p id="signupError" class="error-message"></p>
+            </div>
+
+            <button id="closeAuthModal" class="close-modal">&times;</button>
+        </div>
+    </div>
+
+<script src="../script.js"></script>
+</body>
+</html>

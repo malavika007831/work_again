@@ -1,0 +1,89 @@
+Firebase Authentication Setup Guide
+=====================================
+
+Follow these steps to integrate Firebase Authentication into your WorkAgain app:
+
+1. CREATE A FIREBASE PROJECT
+   - Go to Firebase Console: https://console.firebase.google.com/
+   - Click "Create a project"
+   - Name it "WorkAgain" (or your preferred name)
+   - Click through to complete setup
+
+2. GET YOUR FIREBASE CONFIG
+   - In Firebase Console, go to Project Settings (gear icon)
+   - Scroll to "Your apps" section
+   - Click "Web" icon to add a web app
+   - Follow the wizard and note down the Firebase config
+
+3. UPDATE YOUR FIREBASE CONFIG IN script.js
+   - Open script.js in your editor
+   - Find the firebaseConfig object (lines ~3-11)
+   - Replace the placeholder values with your actual config:
+   
+   Example:
+   const firebaseConfig = {
+       apiKey: "AIzaSyD1234567890abcdefghijklmnopqr",
+       authDomain: "workagain-abc123.firebaseapp.com",
+       projectId: "workagain-abc123",
+       storageBucket: "workagain-abc123.appspot.com",
+       messagingSenderId: "123456789012",
+       appId: "1:123456789012:web:1234567890abcdef"
+   };
+
+4. ENABLE EMAIL/PASSWORD AUTHENTICATION
+   - In Firebase Console, go to Authentication section
+   - Click "Sign-in method"
+   - Enable "Email/Password"
+   - Click Save
+
+5. TEST THE AUTHENTICATION
+   - Open index.html in your browser
+   - Click "Login" button
+   - Try creating an account or logging in
+   - Check Firebase Authentication tab to see registered users
+
+HOW IT WORKS:
+=============
+
+LOGIN TAB:
+- Users enter email and password
+- Firebase verifies credentials
+- On success: user sees their email in navbar and "Logout" button
+- On failure: error message displays
+
+SIGNUP TAB:
+- Users enter name, email, password, and confirm password
+- Firebase creates new account
+- User profile is updated with display name
+- On success: switches to login tab automatically
+
+LOGOUT:
+- Click "Logout" button in navbar
+- Sessions ends
+- Login button returns to navbar
+
+FEATURE PAGES:
+- Users can now access feature pages while logged in
+- In future, you can restrict access to logged-in users only
+
+NEXT STEPS (OPTIONAL):
+=====================
+
+1. Add user data preservation (Firestore):
+   - Store mentor preferences
+   - Save skill progress
+   - Track analytics
+
+2. Social logins:
+   - Google Sign-in
+   - GitHub Sign-in
+   - LinkedIn Sign-in
+
+3. Password reset:
+   - Add forgot password functionality
+
+4. Profile management:
+   - Let users update their profile info
+   - Upload profile picture
+
+For more Firebase features, visit: https://firebase.google.com/docs

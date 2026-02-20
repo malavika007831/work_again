@@ -1,0 +1,26 @@
+FIREBASE CONFIG TEMPLATE
+=========================
+
+Replace the firebaseConfig object in script.js with your credentials from Firebase Console:
+
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY_FROM_FIREBASE",
+    authDomain: "YOUR_PROJECT_NAME.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_NAME.appspot.com",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
+};
+
+WHERE TO FIND THESE VALUES:
+- Go to https://console.firebase.google.com
+- Select your project
+- Click "Settings" (gear icon) at top left
+- Go to "Project settings" tab
+- Scroll down to "Your apps"
+- Your config values are displayed there
+
+CURRENT STATUS IN script.js:
+- Lines 3-11 contain the firebaseConfig object
+- All values are currently set to "YOUR_*" placeholders
+- Replace each placeholder with your actual Firebase credentials
